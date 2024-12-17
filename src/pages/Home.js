@@ -22,7 +22,7 @@ const Home = () => {
     // get all cat
     const getAllCategory = async () => {
         try {
-            const { data } = await axios.get("http://localhost:8000/api/v1/auth/category/get-category");
+            const { data } = await axios.get("https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/category/get-category");
             if (data?.success) {
                 setCategories(data?.category);
             }
@@ -40,7 +40,7 @@ const Home = () => {
     const getAllProducts = async () => {
         try {
             setLoading(true);
-            const { data } = await axios.get(`http://localhost:8000/api/v1/auth/product/get-product`);
+            const { data } = await axios.get(`https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/get-product`);
             setLoading(false);
             setProduct(data.product);
         } catch (error) {
@@ -52,7 +52,7 @@ const Home = () => {
     //getTOtal COunt
     const getTotal = async () => {
         try {
-            const { data } = await axios.get("http://localhost:8000/api/v1/auth/product/product-count");
+            const { data } = await axios.get("https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-count");
             setTotal(data?.total);
         } catch (error) {
             console.log(error);
@@ -68,7 +68,7 @@ const Home = () => {
     const loadMore = async () => {
         try {
             setLoading(true);
-            const { data } = await axios.get(`http://localhost:8000/api/v1/auth/product/product-list/${page}`);
+            const { data } = await axios.get(https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-list/${page}`);
             setLoading(false);
             setProduct([...product, ...data?.product]);
         } catch (error) {
@@ -100,7 +100,7 @@ const Home = () => {
     //get filterd product
     const filterProduct = async () => {
         try {
-            const { data } = await axios.post("http://localhost:8000/api/v1/auth/product/product-filters", {
+            const { data } = await axios.post("https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-filters", {
                 checked,
                 radio,
             });
@@ -161,7 +161,7 @@ const Home = () => {
                             <div className="col-md-4 mb-3 text-align-center justify-content-center" key={p._id}>
                                 <div className="card">
                                     <img
-                                        src={`http://localhost:8000/api/v1/auth/product/product-photo/${p._id}`}
+                                        src={`https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-photo/${p._id}`}
                                         className="card-img-top"
                                         alt={p.name}
                                     />
