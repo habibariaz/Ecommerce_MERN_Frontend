@@ -44,7 +44,7 @@ const Products = () => {
                                 <Link to={`/Dashboard/admin/update-product/${p.slug}`} className="product-link">
                                     <div className="card">
                                         <img
-                                            src={`http://localhost:8000/api/v1/auth/product/product-photo/${p._id}`}
+                                            src={`https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-photo/${p._id}`}
                                             className="card-img-top"
                                             alt={p.name}
                                         />
