@@ -68,7 +68,7 @@ const Home = () => {
     const loadMore = async () => {
         try {
             setLoading(true);
-            const { data } = await axios.get(https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-list/${page}`);
+            const { data } = await axios.get(`https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-list/${page}`);
             setLoading(false);
             setProduct([...product, ...data?.product]);
         } catch (error) {
