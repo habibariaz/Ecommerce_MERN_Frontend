@@ -11,7 +11,7 @@ const Products = () => {
     //get all products
     const getAllProducts = async () => {
         try {
-            const { data } = await axios.get("http://localhost:8000/api/v1/auth/product/get-product");
+            const { data } = await axios.get("https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/get-product");
             console.log(data);
             if (data?.success && data?.product) {
                 setProduct(data.product);
