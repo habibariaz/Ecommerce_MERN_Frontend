@@ -24,7 +24,7 @@ const UpdateProduct = () => {
     const getSingleProduct = async () => {
         try {
             const { data } = await axios.get(
-                `http://localhost:8000/api/v1/auth/product/get-product/${params.slug}`
+                `https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/get-product/${params.slug}`
             );
             setName(data.product.name);
             setId(data.product._id);
