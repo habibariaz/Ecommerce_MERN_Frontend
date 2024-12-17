@@ -20,7 +20,7 @@ const CreateProduct = () => {
     //get all category
     const getAllCategory = async () => {
         try {
-            const { data } = await axios.get("http://localhost:8000/api/v1/auth/category/get-category");
+            const { data } = await axios.get("https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/category/get-category");
             if (data?.success) {
                 setCategories(data?.category);
             }
@@ -47,7 +47,7 @@ const CreateProduct = () => {
             productData.append("category", category);
             productData.append("shipping", shipping);
 
-            const { data } = await axios.post("http://localhost:8000/api/v1/auth/product/create-product",
+            const { data } = await axios.post("https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/create-product",
                 productData
             );
             if (data?.success) {
