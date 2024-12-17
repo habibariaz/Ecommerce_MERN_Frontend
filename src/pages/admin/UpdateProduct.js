@@ -70,7 +70,7 @@ const UpdateProduct = () => {
             photo && productData.append("photo", photo);
             productData.append("category", category);
             const { data } = axios.put(
-                `http://localhost:8000/api/v1/auth/product/update-product/${id}`,
+                `https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/update-product/${id}`,
                 productData
             );
             if (data?.success) {
@@ -95,7 +95,7 @@ const UpdateProduct = () => {
 
             console.log("Deleting product with ID:", id); // Debugging line to check if ID is correct
             const { data } = await axios.delete(
-                `http://localhost:8000/api/v1/auth/product/delete-product/${id}`
+                `https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/delete-product/${id}`
             );
 
             if (data?.success) {
@@ -164,7 +164,7 @@ const UpdateProduct = () => {
                                 ) : (
                                     <div className="text-center">
                                         <img
-                                            src={`http://localhost:8000/api/v1/auth/product/product-photo/${id}`}
+                                            src={`https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-photo/${id}`}
                                             alt="product_photo"
                                             height={"200px"}
                                             className="img img-responsive"
