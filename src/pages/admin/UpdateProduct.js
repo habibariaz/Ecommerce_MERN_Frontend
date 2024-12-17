@@ -69,7 +69,7 @@ const UpdateProduct = () => {
             productData.append("quantity", quantity);
             photo && productData.append("photo", photo);
             productData.append("category", category);
-            const { data } = axios.put(
+            const { data } = await axios.put(
                 `https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/update-product/${id}`,
                 productData
             );
