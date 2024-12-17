@@ -73,14 +73,13 @@ const UpdateProduct = () => {
                 `https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/update-product/${id}`,
                 productData
             );
-            if (data?.success) {
-                alert(data?.message)
-                alert("Something went wrong")
-            } else {
-                alert("Product Updated Successfully")
-                navigate("/Dashboard/admin/products");
-
-            }
+           if (data?.success) {
+    alert(data?.message)
+    alert("Something went wrong")
+} else {
+    alert("Product Updated Successfully")
+    navigate("/Dashboard/admin/products");
+}
 
         } catch (error) {
             console.log(error);
