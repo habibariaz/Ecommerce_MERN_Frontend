@@ -67,7 +67,7 @@ const CartPage = () => {
                             <div className="row mb-2 p-3 card flex-row">
                                 <div className="col-md-4">
                                     <img
-                                        src={`http://localhost:8000/api/v1/auth/product/product-photo/${p._id}`}
+                                        src={`https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-photo/${p._id}`}
                                         className="card-img-top"
                                         alt={p.name}
                                         width="100px"
