@@ -60,31 +60,32 @@ const UpdateProduct = () => {
 
     //product function
     const handleUpdate = async (e) => {
-        e.preventDefault();
-        try {
-            const productData = new FormData();
-            productData.append("name", name);
-            productData.append("description", description);
-            productData.append("price", price);
-            productData.append("quantity", quantity);
-            photo && productData.append("photo", photo);
-            productData.append("category", category);
-            const { data } = await axios.put(
-                `https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/update-product/${id}`,
-                productData
-            );
-           if (data?.success) {
-    alert(data?.message)
-    alert("Something went wrong")
-} else {
-    alert("Product Updated Successfully")
-    navigate("/Dashboard/admin/products");
-}
+    e.preventDefault();
+    try {
+        const productData = new FormData();
+        productData.append("name", name);
+        productData.append("description", description);
+        productData.append("price", price);
+        productData.append("quantity", quantity);
+        if (photo) productData.append("photo", photo); // Only append if photo exists
+        productData.append("category", category);
 
-        } catch (error) {
-            console.log(error);
+        const { data } = await axios.put(
+            `https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/update-product/${id}`,
+            productData
+        );
+
+        if (data?.success) {
+            alert("Product Updated Successfully");
+            navigate("/Dashboard/admin/products");
+        } else {
+            alert(data?.message || "Something went wrong while updating the product.");
         }
-    };
+    } catch (error) {
+        console.error("Error while updating product:", error);
+        alert("An error occurred while updating the product.");
+    }
+};
 
     //delete a product
     const handleDelete = async () => {
