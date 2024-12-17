@@ -17,7 +17,7 @@ const CreateCategory = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post("http://localhost:8000/api/v1/auth/category/create-category", {
+            const { data } = await axios.post("https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/category/create-category", {
                 name,
             });
             if (data?.success) {
