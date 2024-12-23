@@ -5,6 +5,8 @@ import axios from 'axios'
 import { Prices } from '../components/prices/Prices.js'
 import { useNavigate } from 'react-router-dom'
 import { useCart } from '../context/Cart.js'
+import slider from '../images/slider.jpg'
+
 
 
 const Home = () => {
@@ -88,15 +90,6 @@ const Home = () => {
         setChecked(all);
     };
 
-    useEffect(() => {
-        if (!checked.length || !radio.length) getAllProducts();
-    }, [checked.length, radio.length]);
-
-
-    useEffect(() => {
-        if (checked.length || radio.length) filterProduct();
-    }, [checked, radio]);
-
     //get filterd product
     const filterProduct = async () => {
         try {
@@ -110,106 +103,132 @@ const Home = () => {
         }
     };
 
+    // Handle price filter
+    const handlePriceFilter = (value) => {
+        const priceRange = JSON.parse(value); // Convert string to array
+        setRadio(priceRange);
+    };
+    
+    useEffect(() => {
+        if (!checked.length && !radio.length) {
+            getAllProducts();
+        } else {
+            filterProduct();
+        }
+    }, [checked, radio]);
     return (
         <>
             <Header />
-            <div className="container-fluid row mt-3">
-                <div className="col-md-2">
-                    <h4 className="text-center">Filter By Category</h4>
-                    <div className="d-flex flex-column">
-                        {categories?.map((c) => (
-                            <label key={c._id}>
-                                <input
-                                    type="checkbox" style={{ marginRight: "5px" }}
-                                    onChange={(e) => handleFilter(e.target.checked, c._id)}
-                                />
-                                {c.name}
-                            </label>
-                        ))}
-                    </div>
-
-                    {/* price filter */}
-                    <h4 className="text-center mt-4">Filter By Price</h4>
-                    <div className="d-flex flex-column">
-                        {Prices?.map((p) => (
-                            <div key={p._id}>
-                                <label>
+            <div id="home_bg">
+            <div style={{ height: "600px", width: "100%" }}>
+                <img
+                    src={slider}
+                    className="img-fluid"
+                    alt="..."
+                    style={{ width: "100%", height: "100%" }}
+                />
+            </div>
+            <div >
+                <div className="container-fluid row pt-3" style={{ minHeight: "100vh" }} >
+                    <div className="col-md-2">
+                        <h4 className="text-center">Filter By Category</h4>
+                        <div className="d-flex flex-column">
+                            {categories?.map((c) => (
+                                <label key={c._id}>
                                     <input
-                                        type="radio"
-                                        name="price"
-                                        value={p.array}
-                                        onChange={(e) => setRadio(e.target.value)}
+                                        type="checkbox"
+                                        style={{ marginRight: "5px" }}
+                                        onChange={(e) => handleFilter(e.target.checked, c._id)}
                                     />
-                                    {p.name}
+                                    {c.name}
                                 </label>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="d-flex flex-column">
-                        <button
-                            className="btn btn-danger"
-                            onClick={() => window.location.reload()}
-                        >
-                            RESET FILTERS
-                        </button>
-                    </div>
-                </div>
-                <div className="col-md-9">
-                    <h1 className="text-center">All Products</h1>
-                    <div className="d-flex flex-wrap">
-                        {product?.map((p) => (
-                            <div className="col-md-4 mb-3 text-align-center justify-content-center" key={p._id}>
-                                <div className="card">
-                                    <img
-                                        src={`https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-photo/${p._id}`}
-                                        className="card-img-top"
-                                        alt={p.name}
-                                    />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{p.name}</h5>
-                                        <p className="card-text">
-                                            {p.description.substring(0, 30)}...
-                                        </p>
-                                        <p className="card-text"> $ {p.price}</p>
-                                        <button
-                                            className="btn btn-primary ms-1"
-                                            onClick={() => navigate(`/product/${p.slug}`)}
-                                        >
-                                            More Details
-                                        </button>
+                            ))}
+                        </div>
 
-                                        <button
-                                            className="btn btn-secondary ms-1"
-                                            onClick={() => {
-                                                setCart([...cart, p]);
-                                                localStorage.setItem(
-                                                    "cart",
-                                                    JSON.stringify([...cart, p])
-                                                );
-                                                alert("Item Added to cart")
-                                            }}
-                                        >
-                                            ADD TO CART
-                                        </button>
+                        {/* price filter */}
+                        <h4 className="text-center mt-4">Filter By Price</h4>
+                        <div className="d-flex flex-column">
+                            {Prices?.map((p) => (
+                                <div key={p._id}>
+                                    <label>
+                                        <input
+                                            type="radio"
+                                            name="price"
+                                            value={JSON.stringify(p.array)} // Store array as JSON
+                                            onChange={(e) => handlePriceFilter(e.target.value)}
+                                        />
+                                        {p.name}
+                                    </label>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="d-flex flex-column">
+                            <button
+                                className="btn btn-danger"
+                                onClick={() => window.location.reload()}
+                            >
+                                RESET FILTERS
+                            </button>
+                        </div>
+                    </div>
+                    <div className="col-md-9">
+                        <h1 className="text-center">All Products</h1>
+                        <div className="d-flex flex-wrap">
+                            {product?.map((p) => (
+                                <div className="col-md-4 mb-3 text-align-center justify-content-center" key={p._id}>
+                                    <div className="card">
+                                        <img
+                                            src={`https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-photo/${p._id}`}
+                                            className="card-img-top"
+                                            alt={p.name}
+                                        />
+                                        <div className="card-body">
+                                            <h5 className="card-title">{p.name}</h5>
+                                            <p className="card-text">
+                                                {p.description.substring(0, 30)}...
+                                            </p>
+                                            <p className="card-text"> $ {p.price}</p>
+                                            <button
+                                                className="btn btn-primary ms-1"
+                                                onClick={() => navigate(`/product/${p.slug}`)}
+                                            >
+                                                More Details
+                                            </button>
+
+                                            <button
+                                                className="btn btn-secondary ms-1"
+                                                onClick={() => {
+                                                    setCart([...cart, p]);
+                                                    localStorage.setItem(
+                                                        "cart",
+                                                        JSON.stringify([...cart, p])
+                                                    );
+                                                    alert("Item Added to cart")
+                                                }}
+                                            >
+                                                ADD TO CART
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="m-2 p-3">
-                        {product && product.length < total && (
-                            <button
-                                className="btn btn-warning"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    setPage(page + 1);
-                                }}
-                            >
-                                {loading ? "Loading ..." : "Loadmore"}
-                            </button>
-                        )}
+                            ))}
+                        </div>
+                        <div className="m-2 p-3">
+                            {product && product.length < total && (
+                                <button
+                                    className="btn btn-warning"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setPage(page + 1);
+                                    }}
+                                >
+                                    {loading ? "Loading ..." : "Loadmore"}
+                                </button>
+                            )}
+                        </div>
                     </div>
                 </div>
+            </div>
             </div>
             <Footer />
         </>
