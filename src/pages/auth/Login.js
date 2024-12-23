@@ -37,9 +37,9 @@ const Login = () => {
                     token: res.data.token,
                 })
                 localStorage.setItem("auth", JSON.stringify(res.data));
-                console.log("Attempting to navigate to /...");
+                // console.log("Attempting to navigate to /...");
                 navigate(location.state || "/");
-                console.log("Navigation executed.");
+                // console.log("Navigation executed.");
             } else {
                 alert(res.data.message);
             }
