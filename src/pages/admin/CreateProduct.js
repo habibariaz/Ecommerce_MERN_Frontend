@@ -26,7 +26,6 @@ const CreateProduct = () => {
             }
         } catch (error) {
             console.log(error);
-            alert("Something went wrong in getting catgeory")
         }
     };
 
@@ -60,19 +59,18 @@ const CreateProduct = () => {
             }
         } catch (error) {
             console.log(error);
-            alert("Something went wrong while creating product")
         }
     };
 
     return (
         <>
             <Header />
-            <div className="container-fluid m-3 p-3">
+             <div id="admin_bg1" style={{ height: "100vh" }}>
                 <div className="row">
-                    <div className="col-md-3">
+                    <div className="col-md-3 admin_topmargin">
                         <AdminMenu />
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-9 admin_topmargin admin_table">
                         <h1>Create Product</h1>
                         <hr /> <br />
                         <div className="m-1 w-75">
