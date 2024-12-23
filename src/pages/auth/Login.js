@@ -29,6 +29,7 @@ const Login = () => {
                 email,
                 password
             });
+
             if (res && res.data.success) {
                 alert(res.data && res.data.message);
                 setAuth({
