@@ -116,3 +116,35 @@
   text-decoration: none !important;
   color: black !important;
 }
+
+/* ========================= */
+
+#register_bg {
+  background-image: url('./images/bg1.jpg');
+  overflow: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
+
+#login_bg {
+  background-image: url('./images/bg1.jpg');
+  overflow: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
+
+#forgot_bg {
+  background-image: url('./images/bg1.jpg');
+  overflow: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100%;
+}
