@@ -89,28 +89,26 @@ const CreateCategory = () => {
     return (
         <>
             <Header />
-
-            <div className="container-fluid m-3 p-3">
-
-                <div className="row">
+ <div id="admin_bg" style={{height:"100%"}}>
+                <div className="row admin_topmargin">
                     <div className="col-md-3">
                         <AdminMenu />
                     </div>
-                    <div className="col-md-9">
+                    <div className="col-md-9 admin_topmargin admin_table" >
                         <h1>Manage Category</h1>
                         <hr />
-                        <div className="p-3 w-50">
+                        <div>
                             <CategoryForm
                                 handleSubmit={handleSubmit}
                                 value={name}
                                 setValue={setName}
                             />
                         </div>
-                        <div className="w-75">
-                            <table className="table">
+                        <div>
+                            <table className="table table-success table-striped">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Name</th>
+                                        <th scope="col">Category Name</th>
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
@@ -121,7 +119,7 @@ const CreateCategory = () => {
                                                 <td key={c._id}>{c.name}</td>
                                                 <td>
                                                     <button
-                                                        className="btn btn-primary ms-2"
+                                                        className="pl-3 btn btn-primary ms-2"
                                                         onClick={() => {
                                                             setVisible(true);
                                                             setUpdatedName(c.name);
@@ -188,7 +186,6 @@ const CreateCategory = () => {
                     </div>
                 </div>
                 <Footer />
-
             </div>
         </>
 
