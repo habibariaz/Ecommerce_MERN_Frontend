@@ -50,55 +50,57 @@ const Register = () => {
     return (
         <>
             <Header />
-            <div className="row" style={{ margin: "0" }}>
-                <div className="col-sm-4 mb-3 mb-sm-0 registration_topmargin">
-                    <div className="card">
+           <div id="register_bg">
+                <div className="row" style={{ margin: "0" }}>
+                    <div className="col-sm-4 mb-3 mb-sm-0 registration_topmargin">
+                        <div className="card" style={{ visibility: "hidden" }}>
+                        </div>
                     </div>
-                </div>
 
-                <div className="col-sm-4 registration_topmargin" >
-                    <div className="card registration_card_shadow ">
-                        <div className="card-body">
-                            <div className="text-center">
-                                <h3 className='mb-3'>Registration</h3>
-                            </div>
-                            <div className='registrationInputs_padding'>
-                                <form onSubmit={submit}>
-                                    <div >
-                                        <input type="text" value={name} name="name" className='form-control input-underline' placeholder='Enter Name' onChange={(e) => setName(e.target.value)} required />
-                                    </div><br />
-                                    <div>
-                                        <input type="text" value={email} name="email" className='form-control input-underline' placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} required />
-                                    </div><br />
-                                    <div>
-                                        <input type="password" value={password} name="password" className='form-control input-underline' placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} required />
-                                    </div><br />
-                                    <div>
-                                        <input type="text" value={phone} name="phone" className='form-control input-underline' placeholder='Enter Phone' onChange={(e) => setPhone(e.target.value)} required />
-                                    </div><br />
-                                    <div>
-                                        <input name="address" value={address} id="address" className='form-control input-underline' placeholder='Enter Address' onChange={(e) => setAddress(e.target.value)} required />
-                                    </div><br />
+                    <div className="col-sm-4 registration_topmargin" >
+                        <div className="card registration_card_shadow ">
+                            <div className="card-body">
+                                <div className="text-center">
+                                    <h3 className='mb-3'>Registration</h3>
+                                </div>
+                                <div className='registrationInputs_padding'>
+                                    <form onSubmit={submit}>
+                                        <div >
+                                            <input type="text" value={name} name="name" className='form-control input-underline' placeholder='Enter Name' onChange={(e) => setName(e.target.value)} required />
+                                        </div><br />
+                                        <div>
+                                            <input type="text" value={email} name="email" className='form-control input-underline' placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} required />
+                                        </div><br />
+                                        <div>
+                                            <input type="password" value={password} name="password" className='form-control input-underline' placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} required />
+                                        </div><br />
+                                        <div>
+                                            <input type="text" value={phone} name="phone" className='form-control input-underline' placeholder='Enter Phone' onChange={(e) => setPhone(e.target.value)} required />
+                                        </div><br />
+                                        <div>
+                                            <input name="address" value={address} id="address" className='form-control input-underline' placeholder='Enter Address' onChange={(e) => setAddress(e.target.value)} required />
+                                        </div><br />
 
-                                    <div>
-                                        <input type="text" value={answer} name="answer" id="answer" className='form-control input-underline' placeholder='Enter Your Role' onChange={(e) => setAnswer(e.target.value)} required />
-                                    </div>
+                                        <div>
+                                            <input type="text" value={answer} name="answer" id="answer" className='form-control input-underline' placeholder='Enter Your Role' onChange={(e) => setAnswer(e.target.value)} required />
+                                        </div>
 
-                                    <div className='mt-3 mb-3'>
-                                        <span style={{ color: "red" }}>{error}</span>
-                                    </div>
+                                        <div className='mt-3 mb-3'>
+                                            <span style={{ color: "red" }}>{error}</span>
+                                        </div>
 
-                                    <div className="text-center">
-                                        <button type="submit" className="btn btn-dark registrationBtn" onClick={submit}>SignUp</button>
-                                    </div>
+                                        <div className="text-center">
+                                            <button type="submit" className="btn btn-dark registrationBtn" onClick={submit}>SignUp</button>
+                                        </div>
 
-                                </form>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="col-sm-4 registration_topmargin">
-                    <div className="card cards_border_none">
+                    <div className="col-sm-4 registration_topmargin">
+                        <div className="card cards_border_none" style={{ visibility: "hidden" }}>
+                        </div>
                     </div>
                 </div>
             </div>
