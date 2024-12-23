@@ -52,44 +52,46 @@ const Login = () => {
     return (
         <>
             <Header />
-            <div className="row" style={{ margin: "0", marginTop: "100px", marginBottom: "100px" }}>
-                <div className="col-sm-4 mb-3 mb-sm-0 registration_topmargin">
-                    <div className="card">
+             <div id="login_bg">
+                <div className="row" >
+                    <div className="col-sm-4 mb-3 mb-sm-0 registration_topmargin">
+                        <div className="card" style={{ visibility: "hidden" }}>
+                        </div>
                     </div>
-                </div>
-                <div className="col-sm-4 registration_topmargin" >
-                    <div className="card registration_card_shadow ">
-                        <div className="card-body">
-                            <div className="text-center">
-                                <h3 className='mb-3'>Login</h3>
-                            </div>
-                            <div className='registrationInputs_padding'>
-                                <form onSubmit={login}>
-                                    <div>
-                                        <input type="text" value={email} name="email" className='form-control input-underline' placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} />
-                                    </div><br />
-                                    <div>
-                                        <input type="password" value={password} name="password" className='form-control input-underline' placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} />
-                                    </div>
+                    <div className="col-sm-4 registration_topmargin" style={{ margin: "0", marginTop: "100px", marginBottom: "100px" }}>
+                        <div className="card registration_card_shadow ">
+                            <div className="card-body">
+                                <div className="text-center">
+                                    <h3 className='mb-3'>Login</h3>
+                                </div>
+                                <div className='registrationInputs_padding'>
+                                    <form onSubmit={login}>
+                                        <div>
+                                            <input type="text" value={email} name="email" className='form-control input-underline' placeholder='Enter Email' onChange={(e) => setEmail(e.target.value)} />
+                                        </div><br />
+                                        <div>
+                                            <input type="password" value={password} name="password" className='form-control input-underline' placeholder='Enter Password' onChange={(e) => setPassword(e.target.value)} />
+                                        </div>
 
-                                    <div className='mt-3 mb-3'>
-                                        <span style={{ color: "red" }}>{error}</span>
-                                    </div>
+                                        <div className='mt-3 mb-3'>
+                                            <span style={{ color: "red" }}>{error}</span>
+                                        </div>
 
-                                    <div className="text-center mb-3">
-                                        <button type="submit" className="btn btn-dark registrationBtn">Login</button>
-                                    </div><hr />
+                                        <div className="text-center mb-3">
+                                            <button type="submit" className="btn btn-dark registrationBtn">Login</button>
+                                        </div><hr />
 
-                                    <div className="text-center ">
-                                        <button type="submit" className="btn btn-danger registrationBtn" onClick={() => navigate("/forgot-password")}>Forgot Password</button>
-                                    </div>
-                                </form>
+                                        <div className="text-center ">
+                                            <button type="submit" className="btn btn-danger registrationBtn" onClick={() => navigate("/forgot-password")}>Forgot Password</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="col-sm-4 registration_topmargin">
-                    <div className="card cards_border_none">
+                    <div className="col-sm-4 registration_topmargin">
+                        <div className="card cards_border_none" style={{ visibility: "hidden" }}>
+                        </div>
                     </div>
                 </div>
             </div>
