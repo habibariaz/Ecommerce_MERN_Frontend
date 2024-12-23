@@ -20,13 +20,14 @@ import Orders from './pages/user/Orders';
 import Products from './pages/admin/Products';
 import UpdateProduct from './pages/admin/UpdateProduct';
 import CartPage from './pages/CartPage';
-
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
   return (
     <>
       <Routes>
         <Route index path="/" element={<Home />} />
+          <Route path="/product/:slug" element={<ProductDetails />} />
         <Route path='/About' element={<About />} />
         <Route path='/Contact' element={<Contact />} />
         <Route path='/Policy' element={<Policy />} />
@@ -36,7 +37,6 @@ function App() {
 
         <Route path='*' element={<PageNotFound />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route index path="/" element={<Home />} />
 
         {/* User Routes */}
         <Route path="/Dashboard" element={<PrivateRoute />}>
