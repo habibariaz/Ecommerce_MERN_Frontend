@@ -21,7 +21,7 @@ const ProductDetails = () => {
     const getProduct = async () => {
         try {
             const { data } = await axios.get(
-                `http://localhost:8000/api/v1/auth/product/get-product/${params.slug}`
+                `https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/get-product/${params.slug}`
             );
             setProduct(data?.product);
             getSimilarProduct(data?.product._id, data?.product.category._id);
@@ -33,7 +33,7 @@ const ProductDetails = () => {
     const getSimilarProduct = async (pid, cid) => {
         try {
             const { data } = await axios.get(
-                `http://localhost:8000/api/v1/auth/product/related-product/${pid}/${cid}`
+                `https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/related-product/${pid}/${cid}`
             );
             setRelatedProducts(data?.products);
         } catch (error) {
@@ -48,7 +48,7 @@ const ProductDetails = () => {
                 <div className="row container pt-2">
                     <div className="col-md-6">
                         <img
-                            src={`http://localhost:8000/api/v1/auth/product/product-photo/${product._id}`}
+                            src={`https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-photo/${product._id}`}
                             className="card-img-top"
                             alt={product.name}
                             height="400"
@@ -86,7 +86,7 @@ const ProductDetails = () => {
                         {relatedProducts?.map((p) => (
                             <div className="card m-2" style={{ width: "20rem" }}>
                                 <img
-                                    src={`http://localhost:8000/api/v1/auth/product/product-photo/${p?._id}`}
+                                    src={`https://ecommerce-mern-backend-git-main-habiba-riazs-projects.vercel.app/api/v1/auth/product/product-photo/${p?._id}`}
                                     className="card-img-top"
                                     alt={p.name}
                                 />
